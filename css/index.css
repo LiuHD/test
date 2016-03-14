@@ -1,0 +1,164 @@
+@font-face {
+    font-family: "Emblem One";
+    src: url("http://wickedlysmart.com/hfhtmlcss/chapter8/journal/EmblemaOne-Regular.woff");
+         url("http://wickedlysmart.com/hfhtmlcss/chapter8/journal/EmblemaOne-Regular.tff");
+}
+
+body {
+    /*background-color: #9bb0fa;*/
+    margin: 0;
+}
+
+header {
+    height: 50px;
+    background-color: black;
+}
+
+video {
+    width: 500px;
+    margin-top: 20px;
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+}
+
+table {
+    text-align: center;
+    vertical-align: middle;
+    width: 800px;
+    margin-top: 20px;
+    margin-right: auto;
+    margin-left: auto;
+    /*border-spacing: 10px 10px;*/
+    border-collapse: collapse;
+}
+
+table caption {
+    padding-bottom: 8px;
+    color: #085e74;
+    font-style: italic;
+}
+
+th{
+    padding: 5px;
+    background-color: #efe5d0;
+}
+
+td{
+    padding: 5px;
+}
+
+tr:nth-child(odd) {
+    background-color: #9bb0fa;
+}
+
+#nav {
+    float: right;
+}
+
+.table {
+    color: white;
+    display: table;
+    border-spacing: 60px 0;
+    font-size: 14px;
+}
+
+.table-row {
+    display: table-row;
+}
+
+.table-column {
+    display: table-column;
+}
+
+.table-cell {
+    /*border-left: 2px solid antiquewhite;*/
+    padding: 18px 10px 18px 40px;
+    display: table-cell;
+}
+
+footer {
+    width: 100%;
+    bottom: 0;
+    text-align: center;
+    color: #9bb0fa;
+}
+
+a:link {
+    color: #fff;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #fff;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #7d888f;
+    text-decoration: none;
+}
+
+a:active {
+    color: aqua;
+    text-decoration: none;
+}
+
+ul {
+    margin: 30px auto;
+    width: 480px;
+    /*float: right;*/
+    background-color: #efe5d0;
+    list-style-type: none;
+    padding: 5px 0 5px 0;
+
+}
+
+ul li {
+    display: inline;
+    padding: 5px 10px 5px 10px;
+}
+
+ul li a:link, ul li a:visited {
+    color: #954b4b;
+    font-weight: bold;
+}
+
+ul li.selected {
+    background-color: #c8b99c;
+}
+
+form{
+    display: table;
+    margin-left: 200px;
+    padding: 50px;
+    border-spacing: 40px;
+    transition: transform 1s;
+    -webkit-transition:-webkit-transform 2s;
+    -moz-transition:-moz-transform 2s;
+    -o-transition:-o-transform 2s;
+}
+
+form label{
+    display: table-cell;
+    vertical-align: top;
+    text-align: right;
+}
+
+form input{
+    display: table-cell;
+    vertical-align: top;
+
+}
+
+form div{
+    display: table-row;
+}
+
+form:hover{
+    transform: rotateZ(60deg);
+    -webkit-transform:rotate3D(-20,20,20,60deg);
+    -moz-transform:rotate(45deg);
+    -o-transform:rotate(45deg);
+    -ms-transform: rotate(45deg);
+}

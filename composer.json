@@ -1,0 +1,21 @@
+{
+  "name": "guaniu/laravel",
+  "description": "this is a note for my first own composer config JSON file.",
+  "keywords": [
+    "laravel",
+    "guaniu",
+    "liuhuidong",
+    "snail"
+  ],
+  "homepage": "liuhidong.sinaapp.com",
+  "time": "2015-12-20",
+  "license": "MIT",
+  "author": [
+    {
+      "name": "刘汇东",
+      "email": "liuhuidong8230@163.com",
+      "homepage": "liuhuidong.sinaapp.com",
+      "role": "genius"
+    }
+  ]
+}

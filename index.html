@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <!--<script src="clock.js"></script>-->
+    <link href="css/index.css" type="text/css" rel="stylesheet"/>
+    <meta charset="UTF-8">
+    <title>简单是一种美</title>
+    <meta name="Description" content="简单是一种美"/>
+    <link rel="shortcut icon" href="favicon.ico">
+</head>
+<body>
+<header>
+    <div id="nav">
+        <div class="table">
+            <div class="table-row">
+                <div class="table-cell"><a href="http://www.baidu.com" target="_blank">首页</a></div>
+                <div class="table-cell">文章</div>
+                <div class="table-cell">主题</div>
+                <div class="table-cell">登录|注册</div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<video controls poster="img/xialuote.jpg">
+    <source src="video/xialuotefannao.mp4">
+    Your browser does not support video tag.
+</video>
+<ul>
+    <li><a href="">HOME</a></li>
+    <li class="selected"><a href="">BLOG</a></li>
+    <li><a href="">INVENTIONS</a></li>
+    <li><a href="">RECIPES</a></li>
+    <li><a href="">LOCATIONS</a></li>
+</ul>
+<table>
+    <caption>
+        The cities I visited on my Segway'n USA travels
+    </caption>
+    <tr>
+        <th width="45%">City</th>
+        <th width="25%">Date</th>
+        <th width="5%">Temperature</th>
+        <th width="10%">Altitude</th>
+        <th width="10%">Population</th>
+        <th width="5%">Diner Rating</th>
+    </tr>
+    <tr>
+        <td>Walla Walla, WA</td>
+        <td>June 15th</td>
+        <td>75</td>
+        <td>1,204 ft</td>
+        <td>29,686</td>
+        <td>4/5</td>
+    </tr>
+    <tr>
+        <td>Magic City, ID</td>
+        <td>June 25th</td>
+        <td>74</td>
+        <td>5,312 ft</td>
+        <td>50</td>
+        <td>3/5</td>
+    </tr>
+</table>
+<div>
+    <form action="http://starbuzzcoffee.com/processorder.php" method="post">
+        <fieldset>
+            <legend>
+                个人信息
+            </legend>
+            <div>
+                <label for="name">姓名:</label>
+                <input type="text" id="name" value="">
+            </div>
+            <div>
+                <label for="mobile">手机号:</label>
+                <input type="tel" id="mobile" value="">
+            </div>
+            <div>
+                <label for="email">邮箱:</label>
+                <input type="email" id="email" value="">
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>
+                个人经历
+            </legend>
+            <div>
+                <label for="knowledge">学历:</label>
+                <input type="range" id="knowledge" value="">
+            </div>
+            <div>
+                <label for="age">年龄:</label>
+                <input type="number" id="age" value="" max="100" min="10">
+            </div>
+            <div>
+                <label for="favorite">喜好:</label>
+                <input type="datetime" id="favorite">
+            </div>
+            <div>
+                <label for="sum">数目:</label>
+                <select name="sum" id="sum">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+            </div>
+            <div>
+                <label for="submit"></label>
+                <input id="submit" type="submit" value="submit">
+            </div>
+        </fieldset>
+    </form>
+</div>
+
+<!--</div>-->
+<footer>
+    Copyright© 2016. All Rights Reversed.
+</footer>
+</body>
+</html>
