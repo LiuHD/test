@@ -5,7 +5,7 @@ use Validator\Check;
 use Test\B;
 use Test\C;
 
-header('type:text/txt');
+header('Type:text/txt');
 $check=new Check();
 $a=new A();
 $a->congratulation();
