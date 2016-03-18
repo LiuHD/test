@@ -3,7 +3,8 @@ require_once __DIR__.'/bootstrap.php';
 
 use Validator\Check;
 use Test\B;
-use Test\C;
+use Test\A;
+use Laravel\C;
 
 header('Type:text/txt');
 $check=new Check();

@@ -7,6 +7,8 @@
  * Created by LiuHD
  * Time:10:59 AM at 3/14/16
  */
+namespace Test;
+
 class A
 {
     public function congratulation(){
