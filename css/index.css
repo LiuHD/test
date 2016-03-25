@@ -162,3 +162,12 @@ form:hover{
     -o-transform:rotate(45deg);
     -ms-transform: rotate(45deg);
 }
+
+h2{
+    text-align: center;
+    color: springgreen;
+}
+
+h2::before{
+    content: "$";
+}
