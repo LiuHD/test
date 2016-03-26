@@ -166,6 +166,7 @@ form:hover{
 h2{
     text-align: center;
     color: springgreen;
+    clear: right;
 }
 
 h2::before{
