@@ -7,7 +7,7 @@
     "liuhuidong",
     "snail"
   ],
-  "homepage": "liuhidong.sinaapp.com",
+  "homepage": "http://liuhidong.sinaapp.com",
   "time": "2015-12-20",
   "license": "MIT",
   "author": [
@@ -17,5 +17,13 @@
       "homepage": "liuhuidong.sinaapp.com",
       "role": "genius"
     }
-  ]
+  ],
+  "autoload": {
+    "psr-4": {
+      "Vendor\\": "vendor/"
+    },
+    "files":[
+      "vendor/helpers.php"
+    ]
+  }
 }

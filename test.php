@@ -1,14 +1,13 @@
 <?php
-require_once __DIR__.'/bootstrap.php';
+require_once __DIR__ . '/bootstrap.php';
 
 use Validator\Check;
 use Test\B;
-use Test\A;
-use Laravel\C;
+//use Test\A;
+use Vendor\Laravel\C;
 
-header('Type:text/txt');
-$check=new Check();
-$a=new A();
-$a->congratulation();
-B::b();
-C::c();
+echo $a;
+//error_log('I am a log for me ', 3, __DIR__ . '/tmp/my-errors.log');
+var_dump(new A);
+echo 'hello';
+

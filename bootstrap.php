@@ -1,12 +1,10 @@
 <?php
 
-error_reporting(E_ALL | E_STRICT);
+//错误全部报告
+error_reporting(E_ALL|E_STRICT);
+ini_set('date.timezone','Asia/Shanghai');
+ini_set('display_startup_errors','On');
+ini_set('display_errors','On');
+ini_set('log_errors','On');
 
-require_once __DIR__.'/autoload/SplClassLoader.php';
-
-$spl_class_loader=new SplClassLoader('Test',__DIR__.'/vendor/psr0');
-$spl_class_loader->register();
-$spl_class_loader1=new SplClassLoader('Validator',__DIR__.'/vendor/psr0');
-$spl_class_loader1->register();
-$spl_class_loader2=new SplClassLoader('Laravel',__DIR__.'/vendor/psr4');
-$spl_class_loader2->register();
+require_once __DIR__.'/vendor/autoload.php';
