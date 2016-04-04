@@ -6,4 +6,6 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Test\\' => array($vendorDir . '/psr0'),
+    'Parsedown' => array($vendorDir . '/erusev/parsedown'),
 );

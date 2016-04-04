@@ -19,11 +19,17 @@
     }
   ],
   "autoload": {
+    "psr-0":{
+      "Test\\":"vendor/psr0"
+    },
     "psr-4": {
       "Vendor\\": "vendor/"
     },
     "files":[
       "vendor/helpers.php"
     ]
+  },
+  "require": {
+    "erusev/parsedown": "^1.6"
   }
 }

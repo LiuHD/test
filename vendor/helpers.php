@@ -7,7 +7,7 @@
  * Time:3:11 PM at 4/1/16
  */
 
-if (function_exists('write_to_log')) {
+if (!function_exists('write_to_log')) {
     function write_to_log($str)
     {
         if ($fd = @fopen(__DIR__.'/../tmp/my-errors.log', "a")) {
@@ -71,7 +71,17 @@ if (!function_exists('log_to_file')) {
 
 if(!function_exists('my_error_handler')){
     function my_error_handler($error_level,$error_messages,$error_file,$error_line,$error_context){
-//        write_to_log()
+        write_to_log(PHP_EOL.$error_level.' : '.$error_messages.' In '.$error_file.' LINE '.$error_line);
+        if($error_level!=E_STRICT){
+            die('Something Unexpected Happened!</b>');
+        }
     }
-    set_error_handler('my_error_handler');
+    set_error_handler('my_error_handler',E_ALL|E_STRICT|E_COMPILE_ERROR|E_RECOVERABLE_ERROR);
+}
+
+if(!function_exists('my_exception_handler')){
+    function my_exception_handler($exception){
+            die('I have catched you!</b>');
+    }
+    set_exception_handler('my_exception_handler');
 }
