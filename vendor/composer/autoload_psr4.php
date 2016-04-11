@@ -6,5 +6,5 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Vendor\\' => array($vendorDir),
+    'Laravel\\' => array($vendorDir . '/psr4/Laravel'),
 );

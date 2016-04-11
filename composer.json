@@ -23,7 +23,7 @@
       "Test\\":"vendor/psr0"
     },
     "psr-4": {
-      "Vendor\\": "vendor/"
+      "Laravel\\": "vendor/psr4/Laravel"
     },
     "files":[
       "vendor/helpers.php"
