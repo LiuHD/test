@@ -8,4 +8,5 @@ $baseDir = dirname($vendorDir);
 return array(
     'Test\\' => array($vendorDir . '/psr0'),
     'Parsedown' => array($vendorDir . '/erusev/parsedown'),
+    'Evenement' => array($vendorDir . '/evenement/evenement/src'),
 );

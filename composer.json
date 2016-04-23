@@ -30,6 +30,7 @@
     ]
   },
   "require": {
-    "erusev/parsedown": "^1.6"
+    "erusev/parsedown": "^1.6",
+    "gabrielrcouto/php-gui": "^0.1.0"
   }
 }

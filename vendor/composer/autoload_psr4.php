@@ -6,5 +6,10 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Test\\' => array($vendorDir . '/gabrielrcouto/php-gui/test'),
+    'React\\Stream\\' => array($vendorDir . '/react/stream/src'),
+    'React\\EventLoop\\' => array($vendorDir . '/react/event-loop/src'),
+    'React\\ChildProcess\\' => array($vendorDir . '/react/child-process'),
     'Laravel\\' => array($vendorDir . '/psr4/Laravel'),
+    'Gui\\' => array($vendorDir . '/gabrielrcouto/php-gui/src'),
 );
