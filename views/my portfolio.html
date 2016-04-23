@@ -1,246 +1,290 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<title>LiuHD's resumes</title>
-	<script src="http://cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
-	<link href="http://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-	<script src="http://cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.js"></script>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<style type="text/css">
-		body{
-			background-color: gray;
-			position:relative;
-			overflow: scroll;
-		}
-		#navbar{
-			/*font-size: 1.6em;*/
-			background: #606;
-			position: fixed;
-			top: 0;
-			left: 0;
-			width: 100%;
-			z-index: 1;
-			border:0;
-			height: 50px;
-		}
-		#navbar ul{
-			background: #606;
-		}
+    <meta charset="utf-8">
+    <title>LiuHD's resumes</title>
+    <script src="http://cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
+    <link href="http://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.js"></script>
+    <link href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style type="text/css">
+        body {
+            background-color: gray;
+            position: relative;
+            overflow: scroll;
+        }
 
-		#navbar a:link,a:visited{
-			color: white;
+        #navbar {
+            /*font-size: 1.6em;*/
+            background: #606;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1;
+            border: 0;
+            height: 50px;
+        }
 
-		}
+        #navbar ul {
+            background: #606;
+        }
 
-		#navbar li.active a:link{
-			background: #909;
-		}
-		#navbar li a:hover{
-			background: #909;
-			box-shadow: 1px 1px 6px 6px #606 inset;
-		}
+        #navbar a:link, a:visited {
+            color: white;
 
+        }
 
-		#main{
-			color: #fff;
-			width: 90%;
-			margin: 50px auto 0 auto;
-		}
-		#intro{
-			padding: 50px;
-			margin-bottom: 0;
-			font-size:1.6em;
-			background: #aaa;
-			border:solid 1px black;
-		}
-		#portfolio{
-			margin-top: 0;
-			padding:50px;
-			color: #aaa;
-			background-color: #fff;
-			font-size: 1.6em;
-		}
-		#contact{
-			margin-top: 0;
-			padding:50px;
-			color: #aaa;
-			background-color: #fff;
-			font-size: 1.6em;
-		}
-		hr{
-			margin:40px auto 30px;
-			padding:0;
-			max-width:512px;
-			border:0;
-			border-top:solid 5px;
-			text-align:center;
-		}
-		hr.bright::after{
-			background-color:#aaa;
-			color: #fff;
-		}
-		hr.dark::after{
-			background: #fff;
-		}
-		hr::after{
-			content:'</>';
-			/*font-family:FontAwesome;*/
-			display:inline-block;
-			position:relative;
-			top:-0.8em;
-			padding:0 .25em;
-			font-size:2em;
-		}
-		
-		#img-avatar{
-			margin-left:50px;
-			width: 250px;
+        #navbar li.active a:link {
+            background: #909;
+        }
 
-		}
-		.img-well{
-			padding:20px;
-		}
+        #navbar li a:hover {
+            background: #909;
+            box-shadow: 1px 1px 6px 6px #606 inset;
+        }
 
-		.img-portfolio{
-			width: 100%;
-		}
+        #main {
+            color: #fff;
+            width: 90%;
+            margin: 50px auto 0 auto;
+        }
 
-		.form-control{
-			border-radius: 0;
-			border: 0;
-			border-bottom: 1px solid #999;
-			box-shadow:none!important;
-		}
+        #intro {
+            padding: 50px;
+            margin-bottom: 0;
+            font-size: 1.6em;
+            background: #aaa;
+            border: solid 1px black;
+        }
 
-		textarea.form-control{
-			resize: none;
-		}
-		/*header nav ul li{
-			display: table-cell;
-			padding-left: 50px;
-		}*/
+        #portfolio {
+            margin-top: 0;
+            padding: 50px;
+            color: #aaa;
+            background-color: #fff;
+            font-size: 1.6em;
+        }
 
-		footer{
-			height: 30px;
-			padding-top: 7px;
-			background: #606;
-			color: white;
-			vertical-align: middle;
-		}
-	</style>
-	<script type="text/javascript">
-		$(document).ready(function(){
-			var offsetHeight = 50;
-			$('body').scrollspy({
-				offset: offsetHeight,
-				target: '#navbar'
-			});
+        #contact {
+            margin-top: 0;
+            padding: 50px;
+            color: #aaa;
+            background-color: #fff;
+            font-size: 1.6em;
+        }
 
-			$('#navbar li a').click(function () {
-				var scrollPos = $('body>.container').find($(this).attr('href')).offset().top - offsetHeight;
-				$('body,html').animate({scrollTop: scrollPos}, 1000);
-				return false;
-			});
+        hr.bright, hr.dark {
+            margin: 40px auto 30px;
+            padding: 0;
+            max-width: 512px;
+            border: 0;
+            border-top: solid 5px;
+            text-align: center;
+        }
 
-		});
-	</script>
+        hr.bright::after {
+            background-color: #aaa;
+            color: #fff;
+        }
+
+        hr.dark::after {
+            background: #fff;
+        }
+
+        hr.dark:after, hr.bright::after {
+            content: '</>';
+            /*font-family:FontAwesome;*/
+            display: inline-block;
+            position: relative;
+            top: -0.8em;
+            padding: 0 .25em;
+            font-size: 2em;
+        }
+
+        #img-avatar {
+            margin-left: 50px;
+            width: 250px;
+
+        }
+
+        .img-well {
+            padding: 20px;
+        }
+
+        .img-portfolio {
+            width: 100%;
+        }
+
+        .form-control {
+            border-radius: 0;
+            border: 0;
+            border-bottom: 1px solid #999;
+            box-shadow: none !important;
+        }
+
+        textarea.form-control {
+            resize: none;
+        }
+
+        /*header nav ul li{
+            display: table-cell;
+            padding-left: 50px;
+        }*/
+
+        #copy {
+            height: 50px;
+            padding-top: 7px;
+            background: #606;
+            color: white;
+        }
+
+        #social {
+            display: table;
+        }
+
+        #social li {
+            text-align: center;
+            display: table-cell;
+        }
+
+        #social li a:link,#social li a:visited{
+            background: inherit;
+            color: inherit;
+        }
+
+        #social li a:hover {
+            color: #c0c;
+        }
+    </style>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var offsetHeight = 50;
+            $('body').scrollspy({
+                offset: offsetHeight,
+                target: '#navbar'
+            });
+
+            $('#navbar li a').click(function () {
+                var scrollPos = $('body>.container').find($(this).attr('href')).offset().top - offsetHeight;
+                $('body,html').animate({scrollTop: scrollPos}, 1000);
+                return false;
+            });
+
+        });
+    </script>
 </head>
 <body>
-	<header>
-		<nav class="navbar navbar-default" id="navbar">
-			<div class="container-fluid">
-				<!-- Brand and toggle get grouped for better mobile display -->
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand" href="#">LiuHD</a>
-				</div>
+<header>
+    <nav class="navbar navbar-default" id="navbar">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">LiuHD</a>
+            </div>
 
-				<!-- Collect the nav links, forms, and other content for toggling -->
-				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-					<ul class="nav navbar-nav navbar-right">
-						<li class="active"><a href="#i">自我介绍<span class="sr-only">(current)</span></a></li>
-						<li><a href="#p">我的作品</a></li>
-						<li><a href="#c">联系方式</a></li>
-					</ul>
-				</div><!-- /.navbar-collapse -->
-			</div><!-- /.container-fluid -->
-		</nav>
-	</header>
-	<div class='container'>
-		<div id='main'>
-			<a id="i"></a>
-			<section id="intro">
-				<img id="img-avatar" class="pull-right img-circle" src="../img/avatar.png">
-				<p>我的名字叫刘汇东，我是一名后端web工程师，拥有1年的php开发经验，其中包括原生php开发，以及laravel框架开发，以及基于第三方微信平台的微信公众号开发，还有基于WordPress，emlog，帝国cms等的二次开发，我能熟练使用laravel框架，原生php开发，熟悉LAMP架构，有mysql数据库优化经验，熟悉linux基本操作，拥有大型的php网站项目设计建设经验。擅长基于laravel,bootstrap,jquery的网站开发。同时我也对前端，数据也都多有涉及，我英语读写能力良好，可读写英文文档。
-					个人沟通能力强，与同事相处融洽。我享受开发与创造的过程，目标是在web开发领域有所建树！
-				</p>
-				<hr class="bright">
-				<p class="text-center"><strong>web后端工程师</strong></p>
-			</section>
-			<a id="p"></a>
-			<section id='portfolio'>
-				<h1 class="text-center text-uppercase">portfolio</h1>
-				<hr class="dark">
-				<div clasßs="row">
-					<div class="col-md-6 img-well">
-						<img class="img-portfolio" src="../img/portfolio.jpg">
-					</div>
-					<div class="col-md-6 img-well">
-						<img class="img-portfolio" src="../img/portfolio.jpg">
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-6 img-well">
-						<img class="img-portfolio" src="../img/portfolio.jpg">
-					</div>
-					<div class="col-md-6 img-well">
-						<img class="img-portfolio" src="../img/portfolio.jpg">
-					</div>
-				</div>
-			</section>
-			<a id="c"></a>
-			<section id="contact">
-				<h1 class="text-uppercase text-center">
-					contact
-				</h1>
-				<hr class="dark">
-				<div class="row">
-					<div class="col-md-6" style="padding: 40px">
-						<form method="post" action="">
-							<div class="form-group">
-								<input type="text" name="name" class="form-control input-lg" placeholder="NAME">
-							</div>
-							<div class="form-group">
-								<input type="text" name="email" class="form-control input-lg" placeholder="EMAIL ADDRESS">
-							</div>
-							<div class="form-group">
-								<input type="text" name="mobile" class="form-control input-lg" placeholder="PHONE NUMBER">
-							</div>
-							<div class="form-group">
-								<textarea name="message" rows="5" class="form-control input-lg" placeholder="MESSAGE"></textarea>
-							</div>
-							<button type="submit" class="text-center" name="submit">submit</button>
-						</form>
-					</div>
-					<div class="col-md-6" style="padding: 40px">
-						<p>
-							想要跟我联系么？填写左侧的表格，就能给我发送信息。
-							<br>
-							我会尽快回复。
-						</p>
-					</div>
-				</div>
-			</section>
-		</div>
-	</div>
-	<footer class="text-center">
-		<span>power by <a href="http://liuhd.github.io">LiuHD</a></span>
-	</footer>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active"><a href="#i">自我介绍<span class="sr-only">(current)</span></a></li>
+                    <li><a href="#p">我的作品</a></li>
+                    <li><a href="#c">联系方式</a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+</header>
+<div class='container'>
+    <div id='main'>
+        <a id="i"></a>
+        <section id="intro">
+            <img id="img-avatar" class="pull-right img-circle" src="../img/avatar.png">
+            <p>
+                我的名字叫刘汇东，我是一名后端web工程师，拥有1年的php开发经验，其中包括原生php开发，以及laravel框架开发，以及基于第三方微信平台的微信公众号开发，还有基于WordPress，emlog，帝国cms等的二次开发，我能熟练使用laravel框架，原生php开发，熟悉LAMP架构，有mysql数据库优化经验，熟悉linux基本操作，拥有大型的php网站项目设计建设经验。擅长基于laravel,bootstrap,jquery的网站开发。同时我也对前端，数据也都多有涉及，我英语读写能力良好，可读写英文文档。
+                个人沟通能力强，与同事相处融洽。我享受开发与创造的过程，目标是在web开发领域有所建树！
+            </p>
+            <hr class="bright">
+            <p class="text-center"><strong>web后端工程师</strong></p>
+        </section>
+        <a id="p"></a>
+        <section id='portfolio'>
+            <h1 class="text-center text-uppercase">portfolio</h1>
+            <hr class="dark">
+            <div class="row">
+                <div class="col-md-6 img-well">
+                    <img class="img-portfolio" src="../img/portfolio.jpg">
+                </div>
+                <div class="col-md-6 img-well">
+                    <img class="img-portfolio" src="../img/portfolio.jpg">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 img-well">
+                    <img class="img-portfolio" src="../img/portfolio.jpg">
+                </div>
+                <div class="col-md-6 img-well">
+                    <img class="img-portfolio" src="../img/portfolio.jpg">
+                </div>
+            </div>
+        </section>
+        <a id="c"></a>
+        <section id="contact">
+            <h1 class="text-uppercase text-center">
+                contact
+            </h1>
+            <hr class="dark">
+            <div class="row">
+                <div class="col-md-6" style="padding: 40px">
+                    <form method="post" action="">
+                        <div class="form-group">
+                            <input type="text" name="name" class="form-control input-lg" placeholder="NAME">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="email" class="form-control input-lg" placeholder="EMAIL ADDRESS">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="mobile" class="form-control input-lg" placeholder="PHONE NUMBER">
+                        </div>
+                        <div class="form-group">
+                            <textarea name="message" rows="5" class="form-control input-lg"
+                                      placeholder="MESSAGE"></textarea>
+                        </div>
+                        <button type="submit" class="text-center" name="submit">submit</button>
+                    </form>
+                </div>
+                <div class="col-md-6" style="padding: 40px">
+                    <p>
+                        想要跟我联系么？填写左侧的表格，就能给我发送信息。
+                        <br>
+                        我会尽快回复。
+                    </p>
+                    <br>
+                    <hr>
+                    <div id="social" class="pull-right">
+                        <ul>
+                            <li><a href="#"><i class="fa fa-github fa-2x fa-fw" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-tumblr fa-2x fa-fw" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-weixin fa-2x fa-fw" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-weibo fa-2x fa-fw" aria-hidden="true"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+<footer class="text-center">
+    <div id="copy">
+        power by <a href="http://liuhd.github.io">LiuHD</a>
+    </div>
+</footer>
 </body>
 </html>
