@@ -162,6 +162,9 @@ class Psr4Autoloader
             // if the mapped file exists, require it
             if ($this->requireFile($file)) {
                 // yes, we're done
+                //加入记录，方便静态载入
+                $fp=fopen('autoload.php', 'a+');
+                $fp=fwrite($fp, $file);
                 return $file;
             }
         }

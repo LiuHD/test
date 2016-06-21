@@ -1,0 +1,133 @@
+a:link,a:visited{
+			text-decoration: none;
+		}
+		a:hover,a:active{
+			text-decoration: underline;
+		}
+
+		html{
+			background-color: #ffc;
+		}
+
+		body{
+			background-color: transparent;
+			width: 700px;
+			margin: 20px auto;
+		}
+
+		header{
+			background-color: #c90;
+			color: white;
+			padding: 20px;
+			overflow: hidden;
+		}
+
+		header h1{
+			font-size: 3em!important;
+		}
+
+		header ul{
+			padding-left: 0;
+			margin-right: -20px;
+			width: 65px;
+			float: right;
+			text-align: right;
+
+		}
+
+		header ul li{
+			background-color: black;
+			list-style: none;
+			position: relative;			
+			right: -65px;
+			transition: right 0.5s ease-out;
+			cursor: pointer;
+			margin-top:10px;
+		}
+
+		header ul li.all span{
+			position: absolute;
+			left: -13px;
+			top: 4px;
+			border-radius:50%;
+			background-color:red;
+			width:10px;
+			height:10px;
+		}
+
+		header ul li.online span{
+			position: absolute;
+			left: -13px;
+			top: 4px;
+			border-radius:50%;
+			background-color:blue;
+			width:10px;
+			height:10px;
+		}
+
+		header ul li.offline span{
+			position: absolute;
+			left: -13px;
+			top: 4px;
+			border-radius:50%;
+			background-color:green;
+			width:10px;
+			height:10px;
+		}
+
+		header ul li.active{
+			right: 0;
+		}
+
+		#main-body{
+			background-color: transparent;
+		}
+
+		#main-body ul{
+			display: table;
+			padding-left: 0;
+			border-spacing: 0 10px;
+			margin-top: 0;
+		}
+
+		#main-body ul li{
+			background-color: #39f;
+			display: table-row;
+			text-align: center;
+		}
+
+		#main-body ul li .active{
+			background-color: #9f9;
+		}
+
+		#main-body ul li p{
+			vertical-align: middle;
+			display: table-cell;
+			width: 70%;
+			font-style: italic;
+		}
+
+		#main-body ul li a{
+			vertical-align: middle;
+			display: table-cell;
+			width: 20%;
+		}
+
+		#main-body ul li div{
+			display: table-cell;
+
+		}
+
+		#main-body ul li div img{
+			width: 100%;
+		}
+
+		header h1{
+			text-align: center;
+		}
+
+		img{
+			border-color: #aaa;
+			border-width: 4px;
+			border-radius: 50%;
+		}

@@ -60,3 +60,4 @@ I am a log for me
 8 : Undefined variable: b In /Users/olive/PhpstormProjects/test/test.php LINE 10
 8 : Use of undefined constant STDOUT - assumed 'STDOUT' In /Users/olive/PhpstormProjects/test/vendor/gabrielrcouto/php-gui/src/Output.php LINE 54
 8 : Use of undefined constant STDOUT - assumed 'STDOUT' In /Users/olive/PhpstormProjects/test/vendor/gabrielrcouto/php-gui/src/Output.php LINE 54
+8 : Array to string conversion In /Users/olive/PhpstormProjects/test/php/read_zixishi_excel.php LINE 105

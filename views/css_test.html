@@ -2,16 +2,50 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>css权威指南测试</title>
+    <title>清除浮动测试-css权威指南</title>
     <style>
-        body{margin: 0}
-        img.sider {float: left; margin: 0;background: black}
-        h3 {border: 1px solid gray; clear: left; margin-top: 10px;margin-bottom: 0}
+        html,body{
+        	margin: 0!important;
+        	padding:0;
+        }
+        body{
+        	
+        }
+        img.sider {
+        	float: left; 
+        	margin: 0;
+        	margin-bottom:15px;
+        	background: black;
+        }
+        h3 {
+        	border: 1px solid gray;
+        	margin-top: 40px;
+        	margin-bottom: 0;
+        	clear: left;
+        }
+        .red{
+            position: absolute;
+            left:50%;
+            top: -30%;
+            bottom: 0;
+            right: 5px;
+        	background-color: red;
+
+        }
+        .blue{
+            position: relative;
+        	height: 80px;
+        	width: 80px;
+        	margin: 0;
+        	background-color: blue;
+        }
     </style>
 </head>
 <body>
 <h3>Why Doubt Salmon?</h3>
-<img src="img/submit.png" class="sider">
+<img src="../img/submit.png" class="sider">
 <h3>Why Doubt Salmon?</h3>
+
+<div class="blue"><div class="red"></div></div>
 </body>
 </html>

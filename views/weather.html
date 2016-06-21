@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Weather App</title>
+	<meta charset="utf-8">
+	<link href="http://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+	<link href="http://cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.css" rel="stylesheet">
+	<link href="http://cdn.bootcss.com/weather-icons/2.0.10/css/weather-icons.min.css" rel="stylesheet">
+	<style type="text/css">
+		body{
+			background-color: #000;
+			color: #fff;
+			font-size:3em;
+		}
+		h1{
+			font-size:2.5em; 
+		}
+		#main-body{
+			opacity: 0;
+		}
+		.celcius{
+			color: blue;
+		}
+		footer{
+			font-size: 0.5em;
+		}
+	</style>
+</head>
+<body>
+	<header class="text-center">
+		<h1>Free C<i class="wi wi-hail"></i>de Camp</h1>
+		<h1>Weather App</h1>
+	</header>
+	<section id="main-body" class="text-center">
+		<p id="city"></p>
+		<p><span id="temp">24</span><span class="celcius"><i class="wi wi-celsius"></i></span></p>
+		<p id="weather"></p>
+		<img id="icon" src="">
+	</section>
+	<footer class="text-center">
+		powered by <a href="">LiuHD</a>
+	</footer>
+	<script src="http://cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
+	<script src="http://cdn.bootcss.com/jquery-color/2.1.2/jquery.color.js"></script>
+	<script type="text/javascript">
+		function handleSuc(position,result) {
+			var location=$("#main-body");
+			var url="http://api.openweathermap.org/data/2.5/weather?q="+ position.city+","+position.country+"&APPID=061f24cf3cde2f60644a8240302983f2"+"&units=metric";
+			var response=$.get(url,function(data,status){
+				$("#city").text(data.name+","+data.sys.country);
+				$("#temp").text(Math.floor(data.main.temp));
+				$("#weather").text(data.weather[0].main);
+				$("#icon").prop("src","http://openweathermap.org/img/w/"+data.weather[0].icon+".png")
+				$("#main-body").css({opacity:1});
+			});
+		}
+		function handleErr(){
+			console.log('error');
+		}
+
+		$(document).ready(function(){
+			$.get("http://ipinfo.io", handleSuc,handleErr,"jsonp");
+			return false;
+		});
+	</script>
+</body>
+</html>

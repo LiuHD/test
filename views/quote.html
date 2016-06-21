@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Quotes</title>
+	<style type="text/css">
+		#main-body{
+			margin: 200px auto 5px;
+			width:600px;
+			background-color: #fff;
+			padding: 40px;
+			border-radius: 15px;
+		}
+
+		#quote{
+			font-size:2em;
+		}
+		#author{
+			margin: 1em;
+			font-size:1.2em;
+		}
+		#bar{
+			margin:auto 1em;
+		}
+		#bar>a{
+			padding:10px 20px;
+			border: 0;
+		}
+		#bar a{
+			color:#fff;
+		}
+
+		#bar a:hover{
+			opacity: 0.5;
+		}
+
+		#bar div a{
+			padding:6px 6px;
+		}
+		#footer{
+			color:#fff;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<section id="main-body">
+			<p id="quote" class="text-center"><i class="fa fa-quote-left"></i><span>
+			</span></p>
+			<p id="author" class="text-right"></p>
+			<div id="bar">
+				<a class="btn pull-right" href="#">换一个</a>
+				<div class="text-left">
+					<a class="btn" href="#"><i class="fa fa-twitter fa-2x fa-fw" aria-hidden="false"></i></a>
+					<a class="btn" href="#"><i class="fa fa-tumblr fa-2x fa-fw"></i></a>
+				</div>
+			</div>
+		</section>
+		<section id="footer" class="text-center">
+			powered by LiuHD
+		</section>
+	</div>
+
+	<script src="http://cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
+	<script src="http://cdn.bootcss.com/jquery-color/2.1.2/jquery.color.js"></script>
+	<link href="http://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+	<link href="http://cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.css" rel="stylesheet">
+	<script type="text/javascript">
+		function getQuote(){
+			var quotes=[
+			{content:"所谓伊人，在水一方",author:"《诗经 国风 秦风》"},
+			{content:"死生契阔，与子成说。执子之手，与子偕老",author:"《诗经·邶风·击鼓》"},
+
+			{content:"它山之石,可以攻玉",author:"《诗经·小雅·鹤鸣》"},
+
+			{content:"有匪君子，如切如磋，如琢如磨",author:"《诗经.卫风.淇奥》"},
+
+			{content:"嘤其鸣矣，求其友声",author:"《诗经.小雅.伐木》"},
+
+			{content:"投我以桃，报之以李",author:"《大雅·抑》"},
+
+			{content:"今夕何夕，见此良人。",author:"《诗经·唐风·绸缪》"},
+
+			{content:"关关雎鸠，在河之洲。窈窕淑女，君子好逑。",author:"《国风·周南·关雎》"},
+
+			{content:"桃之夭夭，灼灼其华。之子于归，宜其室家。",author:"《诗经·国风·周南·桃夭》"},
+
+			{content:"巧笑倩兮，美目盼兮。",author:"《诗经·国风·卫风·硕人》"},
+
+			{content:"知我者谓我心忧，不知我者谓我何求！",author:"《诗经·国风·王风·黍离》"},
+
+			{content:"青青子衿，悠悠我心。",author:"《诗经·国风·郑风·子衿》"},
+
+			{content:"投我以木瓜，报之以琼琚。",author:"《诗经·国风·卫风·木瓜》"},
+
+			{content:"风雨如晦，鸡鸣不已。既见君子，云胡不喜。",author:"《诗经·国风·郑风·风雨》"},
+
+			{content:"言者无罪，闻者足戒",author:"《诗经·周南·关雎·序》"},
+
+			{content:"靡不有初，鲜克有终。",author:"《诗经·大雅·荡》"},
+
+			{content:"呦呦鹿鸣，食野之苹。我有嘉宾，鼓瑟吹笙。",author:"《诗经·小雅·鹿鸣》"},
+
+			{content:"月出皎兮，佼人僚兮。",author:"《诗经·国风·陈风·月出》"},
+
+			{content:"硕鼠硕鼠，无食我黍。三岁贯汝，莫我肯顾，逝将去女，适彼乐土.",author:"《诗经.国风.魏风.硕鼠》"},
+
+			{content:"秩秩斯干，幽幽南山",author:"《诗经.小雅.斯干》"},
+
+			{content:"心之忧矣，如匪浣衣。静言思之，不能奋飞。",author:"《诗经.国风.邶风.柏舟》"},
+
+			{content:"皎皎白驹，在彼空谷，生刍一束，其人如玉。",author:"《诗经.小雅.白驹》"},
+
+			{content:"人而无仪，不死何为。",author:"《诗经·鄘风·相鼠》"},
+
+			{content:"我姑酌彼兕觥，唯以不永伤。",author:"《诗经·周南·卷耳》"},
+
+			{content:"汉之广矣，不可泳思。江之永矣，不可方思。",author:"《诗经·国风·周南·汉广》"},
+
+			{content:"江有汜，之子归，不我以。不我以，其后也悔。",author:"《诗经.召南.江有汜》"},
+
+			{content:"高山仰止，景行行止",author:"《小雅·车辖》"},
+
+			{content:"一日不见，如三月兮。",author:"《国风·王风·采葛》"}
+			];
+			var rand=Math.round(Math.random()*quotes.length);
+			return quotes[rand];
+		}
+
+		function getColor(){
+			var red=Math.round(Math.random()*256);
+			var blue=Math.round(Math.random()*256);
+			var green=Math.round(Math.random()*256);
+			return [red,blue,green];
+		}
+
+
+
+		function change(){
+			var quote=getQuote();
+			var color=getColor();
+			$("#quote,#author").animate({opacity:0},500,function(){
+				$("#quote span").text(quote.content);
+				$("#author").text("--"+quote.author);
+				$(this).animate({opacity:1},500);
+				$("#bar a,body").animate({backgroundColor:"rgb("+color[0]+","+color[1]+","+color[2]+")"},500);	
+			});
+			$("#main-body").animate({color:"rgb("+color[0]+","+color[1]+","+color[2]+")"},1000);
+			return false;
+		};
+
+		$(document).ready(function(){
+			$("#bar>a").click(change);
+			$("#bar>a").click();
+		});
+	</script>
+</body>
+</html>

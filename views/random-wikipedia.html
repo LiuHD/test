@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Random Wikipedia</title>
+  <link href="../css/bootstrap.css" rel="stylesheet">
+  <style type="text/css">
+    body{
+      background-color: #99f;
+      position: relative;
+      overflow-x:hidden;
+    }
+    *:focus{
+      outline: none;
+    }
+
+    a:link,a:visited,a:hover,a:active{
+      text-decoration: none;
+      color: black;
+    }
+    #random-wiki{
+      padding-bottom: 5px;
+    }
+    #click-icon-note{
+      padding-top: 10px;
+    }
+    #input-button{
+      position: relative;
+    }
+    #search{
+      font-size: 1.5em;
+      width: 400px;
+      margin-right: auto;
+      margin-left: auto;
+      margin-top:300px;
+      text-align: center;
+    }
+    #search input{
+      font-size: inherit;
+      padding:1px 8px;
+      height:40px;
+      width: 300px;
+      border:4px solid #f90;
+      border-radius: 30px;
+      background-color: #99f;
+    }
+    #search input:focus{
+      outline: none;
+    }
+    .close-button{
+      display: inline-block;
+      background: transparent;
+      position: absolute;
+      height: 18px;
+      width: 18px;
+      top:10px;
+      left:80%;
+      overflow: hidden;
+    }
+    .div-rotate-45deg,.div-rotate-45deg-inverse{
+      display:inline-block;
+      width: 20px;
+      background-color: #f90;
+      height: 2px;
+      cursor:pointer;
+      position: absolute;
+      left: 0;
+      top:8px;
+    }
+    .div-rotate-45deg{
+      -ms-transform: rotate(45deg); /* IE 9 */
+      -webkit-transform: rotate(45deg); /* Safari */
+      transform: rotate(45deg);
+    }
+    .div-rotate-45deg-inverse{
+      -ms-transform: rotate(-45deg); /* IE 9 */
+      -webkit-transform: rotate(-45deg); /* Safari */
+      transform: rotate(-45deg);
+    }
+    #handle-wrap{
+      background-color: transparent;
+      position: absolute;
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      overflow: hidden;
+      top:33px;
+      left: 51.5%;
+    }
+    #search-handle{
+      position: absolute;
+      display:inline-block;
+      width: 20px;
+      background-color: #f90;
+      height: 3px;top:10px;
+      left:-17px;
+      top:-10px;
+      -ms-transform: rotate(50deg); /* IE 9 */
+      -webkit-transform: rotate(50deg); /* Safari */
+      transform: rotate(50deg);
+      cursor: pointer;
+    }
+    #articles{
+      margin: 50px 100px;
+    }
+    .article{
+      line-height: 1.8;
+      margin:30px 0;
+      padding: 20px; 
+      background-color: white;
+      font-size: 1.2em;
+    }
+
+    .article:hover{
+      border-left:4px solid #f90;
+      color: #f90;
+      
+    }
+    footer{
+      margin: 10px;
+      bottom: -250px;
+      display: block;
+      position: absolute;
+      width: 100%;
+    }
+    footer a:hover{
+      color: white;
+    }
+
+  </style>
+</head>
+<body>
+  <section id="search">
+    <p id="random-wiki"><a href="https://en.wikipedia.org/wiki/Special:Random" target="_blank">点击这里查看随机wiki</a></p>
+    <div id="input-button">
+      <input type="text" id="keyword"></input>
+      <!-- <button type="button" class="close-button" id="close-button">&times;</button> -->
+      <div class="close-button">
+        <span class="div-rotate-45deg-inverse"></span>
+        <span class="div-rotate-45deg"></span>
+      </div>
+      <div id="handle-wrap">
+        <span id="search-handle" style=""></span>
+      </div>
+    </div>
+    <p id="click-icon-note">点击图标搜索</p>
+  </section>
+  <section id="articles" class="hide">
+
+  </section>
+  <footer class="text-center">
+    power by <a href="#">LiuHD</a>
+  </footer>
+  <script src="../js/jquery.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+
+      $("#search input").keypress(function() {
+        var keyword = $("#keyword").val();
+        if (event.keyCode == '13' && $(this).val() != '') {
+          $("#search").animate({
+            marginTop: "20px"
+          }, 500, function() {});
+          $('#click-icon-note').fadeOut();
+          $(".close-button span").click(function(){
+            $("#articles").empty();
+            $("#articles").addClass('hide');
+            $("#search").animate({marginTop: '300px'}, 500);
+            $('#click-icon-note').fadeIn();
+            $("footer").addClass('hide');
+          });
+          $.ajax({
+            type: "GET",
+            dataType: "JSONP",
+            url: 'https://en.wikipedia.org/w/api.php?format=json&action=query&generator=search&gsrnamespace=0&gsrlimit=10&prop=pageimages|extracts&pilimit=max&exintro&explaintext&exsentences=1&exlimit=max&gsrsearch=' + keyword,
+            success: function(response) {
+              var articles=response.query.pages;
+              var html='';
+              var pageUrl = 'https://en.wikipedia.org/?curid=';
+              for(var i in articles){
+                html+='<article class="article"><a href="'+pageUrl+i+'"><h4>'+articles[i].title+'</h4></a>'+'<p>'+articles[i].extract+'</p></article>';
+              };
+              $("#articles").empty();
+              $("#articles").append(html);
+              $("#articles").removeClass('hide');
+              $("footer").removeClass('hide');
+            },
+            error: function(response) {
+              console.log(response);
+            }
+          });
+        }
+      });
+
+      $(".close-button span").click(function(){
+        $(".close-button span:nth-child(1)").animate({top:'-6px',left:'16px'},200,function(){
+          $(".close-button span:nth-child(2)").animate({top:'23px',left:'16px'},200,function(){
+            $("#keyword").animate({width:'40px'},300,function(){
+              $("#search-handle").animate({left:'0px',top:'10px'},200);
+              $(this).val('');
+              $(this).css('cursor','pointer');
+              $("#keyword,#search-handle").click(function(){
+                $("#search-handle").animate({left:'-17px',top:'-10px'},200,function(){
+                  $("#keyword").animate({width:'300px'},"300",function(){
+                    $(".close-button span").animate({top:'8px',left:'0px'},200);
+                    $(this).css('cursor','auto');
+                  });
+                });
+              });
+            });
+          });
+        });
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+body{
+	outline:solid 2px #a00;
+	width: 200px;
+	margin:250px auto;
+	transition: width 0.5 ease-out;
+}

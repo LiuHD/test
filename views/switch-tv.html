@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>switch-tv list</title>
+    <link rel="stylesheet" type="text/css" href="../css/switch-tv.css">
+</head>
+<body>
+<header>
+    <ul>
+        <li class="all active"><span></span>ALL</li>
+        <li class="online"><span></span>ONLINE</li>
+        <li class="offline"><span></span>OFFLINE</li>
+    </ul>
+    <h1>TWITCH STREAMERS</h1>
+</header>
+<section id="main-body">
+    <ul>
+
+    </ul>
+</section>
+<footer>
+
+</footer>
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+<script type="text/javascript" src="../js/bootstrap.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var channels = [
+            "freecodecamp",
+            "storbeck",
+            "terakilobyte",
+            "habathcx",
+            "RobotCaleb",
+            "thomasballinger",
+            "noobs2ninjas",
+            "beohoff",
+            "brunofin",
+            "comster404",
+            "test_channel",
+            "cretetion",
+            "sheevergaming",
+            "TR7K",
+            "OgamingSC2",
+            "ESL_SC2"
+        ];
+        var html = '';
+        channels.forEach(function(channel){
+            function makeURL(type, name) {
+                return 'https://api.twitch.tv/kraken/' + type + '/' + name+'?callback=?';
+            }
+
+            $.getJSON(makeURL("streams", channel), function(data) {
+                var game,status;
+                if (data.stream === null) {
+                    game = "Offline";
+                    status = "offline";
+                } else if (data.stream === undefined) {
+                    game = "Account Closed";
+                    status = "offline";
+                } else {
+                    game = data.stream.game;
+                    status = "online";
+                };
+
+                $.getJSON(makeURL('channels',channel), function (data) {
+                    var logo,detail;
+                    if (data.logo === undefined || data.logo === null) {
+                        logo = 'https://dummyimage.com/50x50/ecf0e7/5c5457.jpg&text=0x3F';
+                        detail = '';
+                    } else {
+                        logo = data.logo;
+                        detail = data.status;
+                    }
+                    name = data.display_name != null ? data.display_name : channel;
+                            var description = status === "online" ? ': ' + data.status : "";
+                    html = '<li class="'+status+'"><div><img src="' + logo + '"></div><a href="' +data.url + '" target="_blank">' + channel + '</a><p>' + game+description + '</p></li>';
+                    status === "online" ? $("#main-body ul").prepend(html) : $("#main-body ul").append(html);
+                });
+            });
+        });
+
+        $("header ul li").hover(function () {
+            if ($(this).hasClass('active')) {
+                return false;
+            }
+            $(this).css({right: 0});
+        }, function () {
+            if ($(this).hasClass('active')) {
+                return false;
+            }
+            $(this).css({right: '-65px'});
+        });
+        $("header ul li").click(function () {
+            $("header ul li.active").css({right: '-65px'});
+            $("header ul li.active").removeClass('active');
+            $(this).addClass('active');
+            var type=$(this).text();
+            console.log(type);
+            switch (type){
+                case 'ALL':
+                        $("#main-body ul li").fadeIn();
+                    break;
+                case 'ONLINE':
+                        $("#main-body ul li.offline").fadeOut();
+                        $("#main-body ul li.online").fadeIn();
+                    break;
+                case 'OFFLINE':
+                    $("#main-body ul li.online").fadeOut();
+                    $("#main-body ul li.offline").fadeIn();
+
+                    break;
+            }
+        });
+    });
+</script>
+</body>
+</html>
