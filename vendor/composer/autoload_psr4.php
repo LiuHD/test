@@ -10,6 +10,13 @@ return array(
     'React\\Stream\\' => array($vendorDir . '/react/stream/src'),
     'React\\EventLoop\\' => array($vendorDir . '/react/event-loop/src'),
     'React\\ChildProcess\\' => array($vendorDir . '/react/child-process'),
+    'Psr\\Http\\Message\\' => array($vendorDir . '/psr/http-message/src'),
+    'Monolog\\' => array($vendorDir . '/monolog/monolog/src/Monolog'),
     'Laravel\\' => array($vendorDir . '/psr4/Laravel'),
+    'JmesPath\\' => array($vendorDir . '/mtdowling/jmespath.php/src'),
+    'GuzzleHttp\\Psr7\\' => array($vendorDir . '/guzzlehttp/psr7/src'),
+    'GuzzleHttp\\Promise\\' => array($vendorDir . '/guzzlehttp/promises/src'),
+    'GuzzleHttp\\' => array($vendorDir . '/guzzlehttp/guzzle/src'),
     'Gui\\' => array($vendorDir . '/gabrielrcouto/php-gui/src'),
+    'Aws\\' => array($vendorDir . '/aws/aws-sdk-php/src'),
 );
