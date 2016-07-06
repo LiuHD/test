@@ -32,6 +32,10 @@
   "require": {
     "erusev/parsedown": "^1.6",
     "gabrielrcouto/php-gui": "^0.1.0",
-    "phpoffice/phpexcel": "^1.8"
+    "phpoffice/phpexcel": "^1.8",
+    "twig/twig": "^1.24",
+    "pimple/pimple": "~2.1",
+    "monolog/monolog": "^1.19",
+    "aws/aws-sdk-php": "^3.18"
   }
 }
