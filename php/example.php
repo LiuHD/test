@@ -45,9 +45,11 @@ function load($text){
 		$str=substr($text,0,$pos);
 		$text=substr($text,$pos+1);
 		preg_match($str,'/(?:!//);/',$matches);
+		$a=[];
 		foreach ($matches as $match){
-			$arr='';
+			$a[substr($item, 0,strpos($item, '='))]=substr($item, strpos($item, '=')+1);
 		}
+		$arr[]=$a;
 	}
 }
 
