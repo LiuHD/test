@@ -21,15 +21,12 @@ function unicode_encode($name)
     }
     return $str;
 }
-$name = 'MY,你大爷的';
-$unicode_name=unicode_encode($name);
-echo '<h3>'.$unicode_name.'</h3>';
-die();
+
 // 将UNICODE编码后的内容进行解码
 function unicode_decode($name)
 {
     // 转换编码，将Unicode编码转换成可以浏览的utf-8编码
-    $pattern = '/([\w]+)|(\\\u([\w]{4}))/i';
+    $pattern = '/([\w]+)|(\\\u([\w]{3,4}))/i';
     preg_match_all($pattern, $name, $matches);
     if (!empty($matches))
     {
@@ -42,7 +39,7 @@ function unicode_decode($name)
                 $code = base_convert(substr($str, 2, 2), 16, 10);
                 $code2 = base_convert(substr($str, 4), 16, 10);
                 $c = chr($code).chr($code2);
-                $c = iconv('UCS-2', 'UTF-8', $c);
+                $c = iconv('UCS-2BE', 'UTF-8', $c);
                 $name .= $c;
             }
             else
@@ -54,17 +51,31 @@ function unicode_decode($name)
     return $name;
 }
 
+
 $ops = getopt('f:');
 $json_file = $ops['f'];
+if(empty($json_file)) {
+    echo '参数为空！';
+}
 
 $json_data = json_decode(file_get_contents($json_file),true);
 $json_data = array_reverse($json_data);
-foreach ($json_data as $key => $value) {
-	echo $key.PHP_EOL;
-	foreach ($value as $bills => $bill) {
+foreach ($json_data as $key => &$value) {
+	foreach ($value as &$bill) {
 		$bill['memo'] = unicode_decode($bill['memo']);
-		echo $bill['memo'];
 	}
 }
 
-// print_r($json_data);
+$file_path = dirname($json_file) . '/' . pathinfo($json_file)['filename'] . '_decode.json';
+@chmod(dirname($json_file) . '/', 0755);
+$json_data = json_encode($json_data, 256);
+//if(is_writeable($file_path)){
+//    echo '可写' . PHP_EOL;
+//    file_put_contents($file_path, $json_data);
+//    echo '写入完毕' .  PHP_EOL;
+//} else {
+//    echo '不可写';
+//}
+//print_r($json_data);
+
+file_put_contents($file_path, $json_data);
