@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		#canvas{
+			border: solid 1px black;
+		}
+	</style>
+</head>
+<body>
+<canvas id="canvas" width="500" height="500">
+	
+</canvas>
+<script type="text/javascript">
+	var canvas = document.getElementById('canvas');
+	var ctx = canvas.getContext("2d");
+	// Create gradient
+	var grd = ctx.createLinearGradient(0,0,150,100);
+	grd.addColorStop(0,"red");
+	grd.addColorStop(1,"white");
+
+	// Fill with gradient
+	ctx.fillStyle = grd;
+	ctx.fillRect(0,0,200,200);
+</script>
+</body>
+</html>
