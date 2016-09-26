@@ -1,0 +1,85 @@
+<html> 
+<head> 
+    <title>基于不同分辨率加载不同的css</title> 
+    <link rel="stylesheet" type="text/css" media="screen and (min-width: 400px) and (max-width: 600px)" 
+        href="smallScreen.css" /> 
+    <link rel="stylesheet" type="text/css" media="screen and (min-width: 1024px)" href="largeScreen.css" /> 
+    <style type="text/css"> 
+        .wrapper 
+        { 
+            border: solid 1px #666; 
+            padding: 5px 10px; 
+            margin: 40px; 
+        } 
+        
+        .viewing-area span 
+        { 
+            color: #666; 
+            display: none; 
+        } 
+        
+        /* max-width */ 
+        @media screen and (max-width: 600px) 
+        { 
+            .one 
+            { 
+                background: red; 
+            } 
+            span.lt600 
+            { 
+                display: inline-block; 
+            } 
+        } 
+        
+        /* min-width */ 
+        @media screen and (min-width: 900px) 
+        { 
+            .two 
+            { 
+                background: blue; 
+            } 
+            span.gt900 
+            { 
+                display: inline-block; 
+            } 
+        } 
+        
+        /* min-width & max-width */ 
+        @media screen and (min-width: 600px) and (max-width: 900px) 
+        { 
+            .three 
+            { 
+                background: yellow; 
+            } 
+            span.bt600-900 
+            { 
+                display: inline-block; 
+            } 
+        } 
+        
+        /* max device width */ 
+        @media screen and (max-device-width: 480px) 
+        { 
+            .iphone 
+            { 
+                background: green;
+            } 
+        } 
+    </style> 
+</head> 
+<body> 
+    <h3> 
+        基于不同分辨率加载不同的css</h3> 
+    <div class="wrapper one"> 
+        width＜600px 时候 我是红色背景</div> 
+    <div class="wrapper two"> 
+        width＞900px 时候 我是蓝色背景</div> 
+    <div class="wrapper three"> 
+        width 600px和900px 我是黄色</div> 
+    <div class="wrapper iphone"> 
+        终端设备 width小于480px (例如iPhone、Ipad访问等)我是绿色</div> 
+    <p class="viewing-area"> 
+        <strong>你的浏览器:</strong> <span class="lt600">小于600px</span> <span class="bt600-900">在600 
+            - 900px</span> <span class="gt900">大于 900px</span></p> 
+</body> 
+</html> 
