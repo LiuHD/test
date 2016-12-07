@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <style>
+        span {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<script src="../js/jquery-1.11.1.js"></script>
+<script type="text/javascript" src="../js/jquery.ui.widget.js"></script>
+<script type="text/javascript" src="../js/jquery.iframe-transport.js"></script>
+<script type="text/javascript" src="../js/jquery.fileupload.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $('#file-form').fileupload({
+            autoUpload: false,
+            iframe: true,
+            type: 'PUT',
+            multipart: false,
+            replaceFileInput:false,
+            beforeSend: function (xhr, data) {
+                xhr.setRequestHeader('Content-Disposition', '');
+            },
+            dateType: 'text',
+            limitConcurrentUploads: 1,
+            add: function (e, data) {
+                preview_pic('view', data);
+                $.ajax({
+                    type: 'post',
+                    url: 'https://8fvzinuh3j.execute-api.us-east-1.amazonaws.com/prod/',
+                    data: {
+                        'contentType' : 'image/jpeg'
+                    },
+                    success: function (result) {
+                        console.log(result);
+                        if (!result.errorMessage) {
+                            ele.url = result.oneTimeUploadUrl;
+                            ele.contentType = ele.files[0].type;
+                            filePath.push(result.resultUrl);
+                            fileSize.push(ele.files[0]['size']);
+                            fileType.push(ele.files[0]['type'].replace('image/', ''));
+                            ele.submit();
+                            if (id == uploadData.length - 1) {
+                                d.resolve();
+                            }
+                        } else {
+                            alert(result.errorMessage);
+                            return false;
+                        }
+                    },
+                    dataType: 'html'
+                });
+            }
+        })
+    });
+
+    function preview_pic(pic_id, data) {
+        var pic = document.getElementById(pic_id);
+        var inputId = data['fileInput'][0]['id'];
+        file = document.getElementById(inputId);
+        // IE浏览器
+        if (document.all){
+            file.select();
+            document.body.focus();
+            var reallocalpath = document.selection.createRange().text;
+            var ie6 = /msie 6/i.test(navigator.userAgent);
+            // IE6浏览器设置img的src为本地路径可以直接显示图片
+            if (ie6) pic.src = reallocalpath;
+            else {
+                // 非IE6版本的IE由于安全问题直接设置img的src无法显示本地图片，但是可以通过滤镜来实现
+                pic.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale',src=\"" + reallocalpath + "\")";
+                // 设置img的src为base64编码的透明图片 取消显示浏览器默认图片
+                pic.src = 'data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==';
+            }
+        }
+    }
+</script>
+
+<span id="file-form" class="file-form">
+    <span class="liar-label">
+        <img src="" alt="pic" id="view" width="100px" height="100px">
+    </span>
+    <span class="btn-add-photo">
+        <a id="addPhoto"></a>
+            <input id="file1" type="file" name="fileList[0]">
+            <input id="file2" type="file" name="fileList[1]">
+    </span>
+</span>
+</body>
+</html>

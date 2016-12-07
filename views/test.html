@@ -1,42 +1,28 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>datepicker demo</title>
-  <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
-  <script src="http://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="http://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <meta charset="utf-8">
+    <title>datepicker demo</title>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+    <!-- <script src="http://code.jquery.com/jquery-1.12.4.js"></script> -->
+    <!-- <script src="http://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
+    <style type="text/css">
+    </style>
 </head>
 <body>
- 
-<div id="datepicker"></div>
-<p>画布：</p>
-<canvas id="myCanvas" width="500" height="300" style="border:1px solid #d3d3d3;background:#ffffff;">
-Your browser does not support the HTML5 canvas tag.
-</canvas>
-
-<script>
-
-var c=document.getElementById("myCanvas");
-var ctx=c.getContext("2d");
-var img = new Image();
-var img2 = new Image();
-img.onload = function() {
-	c.width = this.width;
-	c.height = this.height;
-	ctx.drawImage(img,10,10);
-	console.log("load1");
-
-}
-
-img2.onload = function() {
-	ctx.drawImage(img2,50,50);	
-	console.log("load2");
-}
-img2.src = '../img/test.jpg';
-img.src = '../img/avatar.png';
-
-
-</script>
+    <canvas id="my-canvas"></canvas>
+    <script type="text/javascript">
+    var cvs = document.getElementById('my-canvas');
+        ctx = cvs.getContext('2d');
+        window.onload = function() {
+        var ww = window.innerWidth;
+        cvs.setAttribute('width',ww);
+        cvs.setAttribute('height',"1000");
+        window.onclick = function(){
+            theRect = ctx.rect(10, 10, 600, 100);
+            ctx.stroke();
+        }
+    }
+    </script>
 </body>
 </html>
