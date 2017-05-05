@@ -2,11 +2,19 @@
 <html>
 <head>
 	<title>
-		
+		touchjs测试
 	</title>
-	<script type="text/javascript" src="https://cdn.bootcss.com/touchjs/0.2.14/touch.js"></script>
+	<script type="text/javascript" src="touch.js"></script>
+	<script type="text/javascript">
+	console.log(touch);
+	touch.on('#target', 'swipeleft swiperight', function(ev){
+    console.log("you have done", ev.type);
+});
+	</script>
 </head>
 <body>
-
+	<div style="height: 400px;background: #ccc;" id='target'>
+</div>
+<div id="log"></div>
 </body>
-</html>
+</html>	
