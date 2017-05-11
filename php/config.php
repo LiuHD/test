@@ -1,5 +1,5 @@
 <?php
-$host = '192.168.1.94';
+$host = 'localhost';
 $username = 'root';
 $password = 'root';
-$db_name = 'test';
+$db_name = 'two-list';

@@ -1,7 +1,4 @@
 <?php 
-header('charset: utf-8');
-@ini_set('display_errors', 'on');
-error_reporting(E_ALL ^ E_NOTICE ^ E_STRICT ^ E_DEPRECATED);
 $sn = isset($_REQUEST['student_number']) ? trim($_REQUEST['student_number']) : '';
 $name = isset($_REQUEST['name']) ? trim($_REQUEST['name']) : '';
 $error = 0;
@@ -26,7 +23,6 @@ if(!empty($sn) && !empty($name)) {
 	    } else {
 		    /* fetch value */
 		    $stmt->fetch();
-		    var_dump($score);
 	    }
 	    $stmt->close();
 		/* close connection */
@@ -38,19 +34,63 @@ if(!empty($sn) && !empty($name)) {
 <html>
 <head>
 	<title>成绩查询</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"  />
+	<style type="text/css">
+		body{
+			padding: 10px 50px;
+		}
+		input{
+			margin-top: 10px;
+			line-height: 20px;
+		}
+		button{
+	    font-size: 18px;
+    	margin-top: 10px;
+    	margin-left: 100px;
+    }
+		table{
+			text-align: center;
+		}
+		td{
+			border: solid black 1px;
+		}
+	</style>
 </head>
 <body>
+<h3>成绩查询</h3>
 <form method="post">
-	<input type="text" name="student_number">
-	<input type="text" name="name">
+	<label>学号:<input type="text" name="student_number"></label>
+	<br>
+	<label>姓名:<input type="text" name="name"></label>
+	<br>
 	<button type="submit">查询</button>
 </form>
+<?php 
+if($error) {
+	echo '<hr><p>'.$msg.'</p>';
+	die;
+} else if(isset($score)) { ?>
+<hr>
+<table>
+	<tr>
+		<th>姓名</th>
+		<th>学号</th>
+		<th>成绩</th>
+	</tr>
+	<tr>
+		<td><?php echo $name;?></td>
+		<td><?php echo $sn;?></td>
+		<td><?php echo $score;?></td>
+	</tr>
+</table>
+<?php } ?>
 <script type="text/javascript">
-	document.getElementsByTagName('form')[0].addEventListener('submit', function() {
-		var name = this.getElementsByName('name')[0].value,
-			sn = this.getElementsByName('student_number')[0].value;
+	document.getElementsByTagName('form')[0].addEventListener('submit', function(event) {
+		var name = document.getElementsByName('name')[0].value,
+			sn = document.getElementsByName('student_number')[0].value;
 		if(name.length <= 0 || sn.length <= 0) {
 			alert('学号和姓名都不能为空');
+			event.preventDefault();
 			return false;
 		}
 	});
